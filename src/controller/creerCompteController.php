@@ -26,99 +26,102 @@ require_once '../Entite/compteentite.php';
 }*/
 
 
-function nouveaucompte()
+function nouveaucompte($data)
      {
     $db= new baseDonnee();
+    $compte=new comptetable();
     $db->seconnecter();
-    $numeroCompte = $_POST['numagence'];
-    $numeroagence = $_POST['numcompte'];
-    $cleRIB = $_POST['rib'];
-    $DateOuverture = $_POST['date'];
-    $MontantInitial = (float)$_POST['montant0'];
-    $FraisOuverture = (float)$_POST['frais'];
-    $DateBloquage = NULL;
-    $DateDebloquage = NULL;
+    $compte -> setNumeroagence($data['numagence']);
+    $compte -> setNumerocompte($data['numcompte']);
+    $compte -> setClerib($data['rib']);
+    $compte ->setDateouverture($data['date']);
+    $compte -> setMontantinitial((float)$data['montant0']);
+    $compte -> setFraisouverture((float)$data['frais']);
+    $compte -> setDatebloquage($data['date1']);
+    $compte -> setDatedebloquage($data['date2']);
     $query = $db->getDb()->prepare($db->comptexewel());
     $array =array(
-        'NumeroCompte' => $numeroCompte,
-        'numeroagence' => $numeroagence,
-        'cleRIB' => $cleRIB,
-        'DateOuverture' => $DateOuverture,
-        'MontantInitial' => $MontantInitial,
-        'FraisOuverture' => $FraisOuverture,
-        'DateBloque' => $DateBloquage,
-        'DateDebloquage' => $DateDebloquage
+        'NumeroCompte' => $compte->getNumerocompte(),
+        'numeroagence' => $compte->getNumeroagence(),
+        'cleRIB' => $compte->getClerib(),
+        'DateOuverture' => $compte->getDateouverture(),
+        'MontantInitial' => $compte->getMontantinitial(),
+        'FraisOuverture' => $compte->getFraisouverture(),
+        'DateBloque' => NULL, //$compte->getDatebloquage(),
+        'DateDebloquage' => NULL //$compte->getDatedebloquage()
     );
     $a = $query->execute($array);
    // var_dump($a);
-    //die;
+   // die;
 }
 if(isset($_POST['creerCompteSubmit'])){
-    extract($_POST);
+    //extract($_POST);
 
     //var_dump($_POST);
-   // die;
-   if($compteChoisi=='1'){
-       nouveaucompte();
+  // die;
+   if($_POST['compteChoisi']=='1'){
+       nouveaucompte($_POST);
    }
 }
-function nouveaucompte1()
+function nouveaucompte1($data)
      {
     $db= new baseDonnee();
+    $compte1 = new comptetable();
     $db->seconnecter();
-    $numeroCompte = $_POST['numagence'];
-    $numeroagence = $_POST['numcompte'];
-    $cleRIB = $_POST['rib'];
-    $DateOuverture = $_POST['date'];
-    $MontantInitial = (float)$_POST['montant0'];
-    $FraisOuverture = (float)$_POST['frais'];
-    $DateBloquage = $_POST['date1'];
-    $DateDebloquage = $_POST['date2'];
+    $compte1 -> setNumeroagence($data['numagence']);
+    $compte1 -> setNumerocompte($data['numcompte']);
+    $compte1 -> setClerib($data['rib']);
+    $compte1 -> setDateouverture($data['date']);
+    $compte1 -> setMontantinitial((float)$data['montant0']);
+    $compte1 -> setFraisouverture((float)$data['frais']);
+    $compte1 -> setDatebloquage($data['date1']);
+    $compte1 -> setDatedebloquage($data['date2']);
     $query = $db->getDb()->prepare($db->comptexewel());
     $array =array(
-        'NumeroCompte' => $numeroCompte,
-        'numeroagence' => $numeroagence,
-        'cleRIB' => $cleRIB,
-        'DateOuverture' => $DateOuverture,
-        'MontantInitial' => $MontantInitial,
-        'FraisOuverture' => $FraisOuverture,
-        'DateBloque' => $DateBloquage,
-        'DateDebloquage' => $DateDebloquage
+        'numeroagence' => $compte1->getNumeroagence(),
+        'NumeroCompte' => $compte1->getNumerocompte(),
+        'cleRIB' => $compte1->getClerib(),
+        'DateOuverture' => $compte1->getDateouverture(),
+        'MontantInitial' => $compte1->getMontantinitial(),
+        'FraisOuverture' => $compte1->getFraisouverture(),
+        'DateBloque' => $compte1->getDatebloquage(),
+        'DateDebloquage' => $compte1->getDatedebloquage()
     );
     $a = $query->execute($array);
 }
 if(isset($_POST['creerCompteSubmit'])){
     extract($_POST);
   
-     if($compteChoisi=='3'){
+     if($_POST['compteChoisi']=='3'){
 
-        nouveaucompte1();
+        nouveaucompte1($_POST);
      }
 }
-function compteagios1()
+function compteagios1($data)
 {
     $db= new baseDonnee();
+    $compte2= new comptetable();
     $db->seconnecter();
-    $numeroagence = $_POST['numagence'];
-    $numeroCompte = $_POST['numcompte'];
-    $cleRIB = $_POST['rib'];
-    $DateOuverture = $_POST['date'];
-    $MontantInitial =(float)$_POST['montant0'];
+    $compte2 -> setNumeroagence($data['numagence']);
+    $compte2 -> setNumerocompte($data['numcompte']);
+    $compte2 -> setClerib($data['rib']);
+    $compte2 -> setDateouverture($data['date']);
+    $compte2 -> setMontantinitial((float)$data['montant0']);
    // $FraisOuverture = NULL;
    // $DateBloquage = NULL;
    // $DateDebloquage = NULL;
-    $Agios = (float)$_POST['agios'];
+    $compte2 -> setAgios((float)$data['agios']);
     $query = $db->getDb()->prepare($db->compteagios());
     $array =array(
-        'NumeroAgence' => $numeroagence,
-        'NumeroCompte' => $numeroCompte, 
-        'CleRIB' => $cleRIB, 
-        'DateOuverture' => $DateOuverture, 
-        'MontantInitial' => $MontantInitial, 
+        'NumeroAgence' => $compte2->getNumeroagence(),
+        'NumeroCompte' => $compte2->getNumerocompte(), 
+        'CleRIB' => $compte2->getClerib(), 
+        'DateOuverture' => $compte2->getDateouverture(), 
+        'MontantInitial' => $compte2->getMontantinitial(), 
         //'FraisOuverture' =>$FraisOuverture,
         //'DateBloque' => $DateBloquage,
        // 'DateDebloquage' => $DateDebloquage,
-        'Agios' => $Agios
+        'Agios' => $compte2->getAgios()
     );
      $query->execute($array);
 }
@@ -126,9 +129,10 @@ if(isset($_POST['creerCompteSubmit'])){
     extract($_POST);
    //  var_dump($_POST);
     //die;
-     if($compteChoisi=='2'){
+     if($_POST['compteChoisi']=='2'){
 
-        compteagios1();
+        compteagios1($_POST);
+        echo 'les donnes sonvoye';
      }
 }
 /*
