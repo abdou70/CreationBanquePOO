@@ -1,5 +1,5 @@
 <?php
-// function connectionDB(){
+//function connectionDB(){
   /*  $host = 'localhost';
     $dbName = 'dbexo';
     $user = 'root';
@@ -16,6 +16,14 @@
     }*/
     // return $db;
 // }
+//namespace base;
+/*function monautoload($classname){
+    $path='../model/';
+    $extension='db.php';
+    $full= $path.$extension;
+  
+    include_once $full;
+  }*/
 class baseDonnee{
     private$_host = 'mysql:host=localhost;dbname=dbexo';
     private$_user = 'root';
@@ -48,8 +56,15 @@ class baseDonnee{
 
   public function seconnecter()
   {
+
+    $options =[
+        PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_CASE=>PDO::CASE_NATURAL,
+        PDO::ATTR_ORACLE_NULLS=>PDO::NULL_EMPTY_STRING
+    ];
       try{
-          $this->setDb(new PDO ($this->getHost(), $this->getUsername(),$this->getPassword()));
+        
+          $this->setDb(new PDO ($this->getHost(), $this->getUsername(),$this->getPassword(),$options));
       }catch(Exception $e){
           die('Erreur :' . $e->getMessage);
       }
