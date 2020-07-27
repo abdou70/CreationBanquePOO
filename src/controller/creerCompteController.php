@@ -50,7 +50,11 @@ use clientcompte;*/
 function nouveaucompte($data)
      {
     $db= new baseDonnee();
+<<<<<<< HEAD
     $compte=new clientcompte\client();
+=======
+    $compte=new comptetable();
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     $db->seconnecter();
     $compte -> setNumeroagence($data['numagence']);
     $compte -> setNumerocompte($data['numcompte']);
@@ -82,13 +86,20 @@ if(isset($_POST['creerCompteSubmit'])){
   // die;
    if($_POST['compteChoisi']=='1'){
        nouveaucompte($_POST);
+<<<<<<< HEAD
        echo 'compte de nature 1 envoyer';
+=======
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
    }
 }
 function nouveaucompte1($data)
      {
     $db= new baseDonnee();
+<<<<<<< HEAD
     $compte1 = new clientcompte\client();
+=======
+    $compte1 = new comptetable();
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     $db->seconnecter();
     $compte1 -> setNumeroagence($data['numagence']);
     $compte1 -> setNumerocompte($data['numcompte']);
@@ -117,13 +128,20 @@ if(isset($_POST['creerCompteSubmit'])){
      if($_POST['compteChoisi']=='3'){
 
         nouveaucompte1($_POST);
+<<<<<<< HEAD
         echo 'compte de nature 2 envoyer';
+=======
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
      }
 }
 function compteagios1($data)
 {
     $db= new baseDonnee();
+<<<<<<< HEAD
     $compte2= new clientcompte\client();
+=======
+    $compte2= new comptetable();
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     $db->seconnecter();
     $compte2 -> setNumeroagence($data['numagence']);
     $compte2 -> setNumerocompte($data['numcompte']);
@@ -155,7 +173,11 @@ if(isset($_POST['creerCompteSubmit'])){
      if($_POST['compteChoisi']=='2'){
 
         compteagios1($_POST);
+<<<<<<< HEAD
         echo 'les donnes sont envoyees';
+=======
+        echo 'les donnes sonvoye';
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
      }
 }
 /*

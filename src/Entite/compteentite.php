@@ -65,6 +65,7 @@ public function setMontantinitial($montantInitial)
 public function getFraisouverture()
 {
     return $this->fraisOuverture;
+<<<<<<< HEAD
 }
 
 public function setFraisouverture($fraisOuverture)
@@ -72,6 +73,15 @@ public function setFraisouverture($fraisOuverture)
     return $this->fraisOuverture=$fraisOuverture;
 }
 
+=======
+}
+
+public function setFraisouverture($fraisOuverture)
+{
+    return $this->fraisOuverture=$fraisOuverture;
+}
+
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
 public function getDatebloquage()
 {
     return $this->datebloquage;

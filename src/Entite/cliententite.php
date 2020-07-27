@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*function monautoload1($classname1){
     $path1='../Entite/';
     $extension1='cliententite.php';
@@ -9,6 +10,9 @@
 
 namespace Clientinitial;
 class client{
+=======
+class tableclient{
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     private $nom ;
     private $prenom ;
     private $adresseclient;
@@ -47,6 +51,7 @@ public function getPrenom()
 public function setAdresse($adresseclient)
 {
     return $this->adresseclient=$adresseclient;
+<<<<<<< HEAD
 }
 
 public function getAdresse()
@@ -64,6 +69,25 @@ public function getEmail1()
     return $this->email1;
 }
 
+=======
+}
+
+public function getAdresse()
+{
+    return $this->adresseclient;
+}
+
+public function setEmail1($email1)
+{
+   return $this->email1=$email1;
+}
+
+public function getEmail1()
+{
+    return $this->email1;
+}
+
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
 public function setNumerotelephone($numerotelephone)
 {
     return $this->numerotelephone=$numerotelephone;
@@ -77,6 +101,7 @@ public function getNumerotelephone()
 public function setProfession($profession)
 {
     return $this->profession=$profession;
+<<<<<<< HEAD
 }
 
 public function getProfession()
@@ -94,6 +119,25 @@ public function getCni()
     return $this->cni;
 }
 
+=======
+}
+
+public function getProfession()
+{
+    return $this->profession;
+}
+
+public function setCni($cni)
+{
+    return $this->cni=$cni;
+}
+
+public function getCni()
+{
+    return $this->cni;
+}
+
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
 public function setDatenaissance($datenaissance)
 {
     return $this->datenaissance=$datenaissance;
@@ -117,6 +161,7 @@ public function getSalaire()
 public function setNomemployeur($nomemployeur)
 {
     return $this->nomemployeur=$nomemployeur;
+<<<<<<< HEAD
 }
 
 public function getNomemployeur()
@@ -144,6 +189,35 @@ public function getTelephone()
     return $this->telephoneemploy;
 }
 
+=======
+}
+
+public function getNomemployeur()
+{
+    return $this->nomemployeur;
+}
+
+public function setRaisonsocial($raisonsocial)
+{
+    return $this->raisonsocial=$raisonsocial;
+}
+
+public function getRaisonsocial()
+{
+    return $this->raisonsocial;
+}
+
+public function setTelephoneEmployeur($telephone)
+{
+    return $this->telephoneemploy=$telephone;
+}
+
+public function getTelephone()
+{
+    return $this->telephoneemploy;
+}
+
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
 public function setAdresseEmployeur($adresseemployeur)
 {
     return $this->adresseemployeur=$adresseemployeur;

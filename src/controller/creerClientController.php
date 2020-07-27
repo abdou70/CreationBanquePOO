@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 spl_autoload_register('monautoload');
 spl_autoload_register('monautoload1');
 function monautoload($classname){
@@ -21,6 +22,11 @@ require_once '../Entite/cliententite.php';
 require_once '../model/db.php';
 use Clientinitial;
 use base;*?
+=======
+
+require_once '../model/db.php';
+require_once '../Entite/cliententite.php';
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
 //require_once '../Entite/cliententite.php';
 
 // var_dump($_POST['creerClientSubmit']);
@@ -188,14 +194,21 @@ if(isset($_POST['creerClientSubmit'])){
      //var_dump($_POST);
      //die();
     $db= new baseDonnee();
+<<<<<<< HEAD
     $client= new Clientinitial\client();
     $db->seconnecter(); 
     $client-> setNom($data['nomclient']);
+=======
+    $client= new tableclient();
+    $db->seconnecter(); 
+    $client->setNom($data['nomclient']);
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     $client -> setPrenom($data['prenomclient']);
     $client -> setAdresse($data['adresseclient']);
     $client-> setEmail1($data['emailclient']);
     $client -> setNumerotelephone($data['phoneclient']);
     $client-> setProfession ($data['professionclient']);
+<<<<<<< HEAD
     $client-> setCni($data['numident']);
     $client -> setDatenaissance($data['datenais']);
     $client -> setSalaire((float)$data['salaireclient']);
@@ -205,6 +218,17 @@ if(isset($_POST['creerClientSubmit'])){
     $client -> setAdresseEmployeur($data['adresemoral']);
     $client -> setNinea($data['ninea']);
     $client -> setEmail($data['emailmoral']);
+=======
+    $client->setCni($data['numident']);
+    $client -> setDatenaissance($data['datenais']);
+    $client ->setSalaire($data['salaireclient']);
+    $client-> setNomemployeur($data['moral']);
+    $client ->setRaisonsocial($data['raismoral']);
+    $client ->setTelephoneEmployeur($data['telemoral']);
+    $client ->setAdresseEmployeur($data['adresemoral']);
+    $client ->setNinea($data['ninea']);
+    $client ->setEmail($data['emailmoral']);
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     $query = $db->getDb()->prepare($db->ajouterclient());
 
     $valu=$client->getNom();
@@ -213,6 +237,7 @@ if(isset($_POST['creerClientSubmit'])){
     $array = array(
         'nom' => $valu,
         'prenom' => $client->getPrenom(),
+<<<<<<< HEAD
         'adresseclient' => $client->getAdresse(),
         'email1' => $client-> getEmail1(),
         'numerotelephone' => $client-> getNumerotelephone(),
@@ -226,6 +251,21 @@ if(isset($_POST['creerClientSubmit'])){
         'adresseemployeur' => $client->getAdresseEmploy(),
         'ninea' => $client->getNinea(),
         'Email' => $client->getEmail() 
+=======
+        'adresseclient' =>$client->getAdresse(),
+        'email1' =>$client-> getEmail1(),
+        'numerotelephone' =>$client-> getNumerotelephone(),
+        'profession' =>$client-> getProfession(),
+        'cni' =>$client-> getCni(),
+        'datenaissance' =>$client-> getDatenaissance(),
+        'salaire' =>$client-> getSalaire(),
+        'nomemployeur' =>$client-> getNomemployeur(),
+        'raisonsocial'=> $client -> getRaisonsocial(),
+        'telephoneemploy' =>$client-> getTelephone(),
+        'adresseemployeur' =>$client-> getAdresseEmploy(),
+        'ninea' =>$client->getNinea(),
+        'Email' =>$client->getEmail() 
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
     );
     $a=$query->execute($array); 
 }
@@ -233,8 +273,12 @@ if(isset($_POST['creerClientSubmit'])){
        if($_POST['clientChoisi']=='1'){
            insererleclient($_POST);
          // var_dump($_POST);
+<<<<<<< HEAD
           //die;
           //echo "le client est inserer";
+=======
+          // die;
+>>>>>>> 3ac44eabca066f3116be32f0666510769e58fce9
        }
         else{
            if($_POST['clientChoisi']=='3'){
